@@ -1,0 +1,237 @@
+
+<body>
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: url("../../resources/common/fonts/opensans-all/open-sans-all-300-normal.woff2?v=1.1.0") format("woff2");
+            src: url("../../resources/common/fonts/opensans-all/open-sans-all-300-normal.woff?v=1.1.0") format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #container {
+            height: calc(100% - 45px);
+            width: 100%;
+            padding-top: 45px;
+        }
+
+        .highcharts-title {
+            font-family: 'Open Sans',sans-serif;
+            font-weight: lighter;
+        }
+    </style>
+
+    <div id="container"></div>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        $(function() {
+
+            var secondSeriesLoaded = false;
+            var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i).test(navigator.userAgent);
+
+
+            Highcharts.setOptions({
+                lang: {
+                    thousandsSep: ','
+                }
+            });
+
+          $('#container').highcharts({
+            chart: {
+              type: 'column'
+            },
+            title: {
+              text: 'The numbers of the crisis',
+                    style: {
+                        fontSize: isMobile ? '28px' : '42px'
+                    },
+                    align: isMobile ? "left" : "center"
+            },
+            xAxis: {
+              categories: [
+                "2000",
+                "2001",
+                "2002",
+                "2003",
+                "2004",
+                "2005",
+                "2006",
+                "2007",
+                "2008",
+                "2009",
+                "2010",
+                "2011",
+                "2012",
+                "2013",
+                "2014",
+                "2015",
+                "2016",
+              ]
+            },
+            yAxis: {
+              min: 0,
+                    max: 1800000,
+                    opposite: true,
+              title: {
+                text: ''
+              },
+              stackLabels: {
+                enabled: false,
+                style: {
+                  fontWeight: 'bold',
+                  color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+              }
+            },
+            legend: {
+              align: 'right',
+              x: isMobile ? -10 : -25,
+              verticalAlign: 'top',
+                    layout: isMobile ? 'vertical' : 'horizontal',
+              y: isMobile ? 6 : 9,
+              floating: true,
+              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+              borderColor: '#CCC',
+              borderWidth: 1,
+              shadow: false
+            },
+            tooltip: {
+              headerFormat: '<b>{point.x}</b><br/>',
+              pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal:,.0f}'
+            },
+            plotOptions: {
+              column: {
+                stacking: 'normal',
+                dataLabels: {
+                  enabled: false,
+                  color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                  style: {
+                    textShadow: '0 0 3px black'
+                  }
+                }
+              }
+            },
+            series: [{
+              name: 'Aprehensions',
+                    color: '#7030A0',
+              data: [
+                1643679,
+                1235718,
+                929809,
+                905065,
+                1139282,
+                1171396,
+                1071972,
+                858638,
+                705005,
+                540865,
+                447731,
+                327577,
+                356873,
+                414397,
+                479371,
+                331333,
+                408870,
+              ]
+            }]
+          });
+
+          setTimeout(() => {
+            performCascadeAction({viewIndex: 2});
+          },  5000);
+
+          window.performCascadeAction = function(params)
+          {
+                if ( params.viewIndex >= 2 ) {
+                    if ( ! secondSeriesLoaded ) {
+                        secondSeriesLoaded = true;
+                        addSecondSeries();
+                    }
+                }
+                else {
+                    if ( secondSeriesLoaded ) {
+                        secondSeriesLoaded = false;
+                        removeSecondSeries();
+                    }
+                }
+          }
+
+          function addSecondSeries()
+          {
+            var chart = $('#container').highcharts();
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+            chart.series[0].removePoint(0);
+
+            chart.addSeries({
+                name: 'IDPs',
+                color: '#3499B8',
+                data: [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                447731,
+                327577,
+                356873,
+                414397,
+                479371,
+                331333,
+                408870,
+                ]});
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            chart.series[1].removePoint(0);
+            setTimeout(()=> {
+              chart.xAxis[0].setCategories([
+                  "2011",
+                  "2012",
+                  "2013",
+                  "2014",
+                  "2015",
+                  "2016",
+                ]);
+              
+            }, 0);
+
+
+          }
+
+          function removeSecondSeries()
+          {
+                var chart = $('#container').highcharts();
+                // chart.series[1].remove();
+          }
+
+        });
+    </script>
+</body>
