@@ -203,4 +203,5 @@ if (window.location.href.toLowerCase().indexOf('storymaps.esri.com') >= 0) {
   })();
 }
 
+loadJS('http://code.highcharts.com/highcharts.js', true);
 loadJS('app/custom-scripts.js');
