@@ -148,6 +148,7 @@
           window.performCascadeAction = function(params)
           {
                 console.log("perform Cascade", params);
+                alert("cascade " + params.viewIndex);
                 if ( params.viewIndex >= 2 ) {
                     if ( ! secondSeriesLoaded ) {
                         secondSeriesLoaded = true;
