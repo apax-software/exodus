@@ -1,0 +1,151 @@
+
+<body>
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            src: url("../../resources/common/fonts/opensans-all/open-sans-all-300-normal.woff2?v=1.1.0") format("woff2");
+            src: url("../../resources/common/fonts/opensans-all/open-sans-all-300-normal.woff?v=1.1.0") format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #container {
+            height: calc(100% - 45px);
+            width: 100%;
+            padding-top: 45px;
+        }
+
+        .highcharts-title {
+            font-family: 'Open Sans',sans-serif;
+            font-weight: lighter;
+        }
+    </style>
+
+    <div id="container"></div>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        $(function() {
+
+            var secondSeriesLoaded = false;
+            var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i).test(navigator.userAgent);
+
+
+            Highcharts.setOptions({
+                lang: {
+                    thousandsSep: ','
+                }
+            });
+
+          $('#container').highcharts({
+            chart: {
+              type: 'column'
+            },
+            title: {
+              text: '',
+                    style: {
+                        fontSize: isMobile ? '28px' : '42px'
+                    },
+                    align: isMobile ? "left" : "center"
+            },
+            xAxis: {
+              categories: [
+                "2012",
+                "2013",
+                "2014",
+                "2015",
+                "2016",
+              ]
+            },
+            yAxis: {
+              min: 0,
+                    max: 20000,
+                    opposite: true,
+              title: {
+                text: ''
+              },
+              stackLabels: {
+                enabled: false,
+                style: {
+                  fontWeight: 'bold',
+                  color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+              }
+            },
+            legend: {
+              align: 'right',
+              x: isMobile ? -10 : -25,
+              verticalAlign: 'top',
+                    layout: isMobile ? 'vertical' : 'horizontal',
+              y: isMobile ? 0 : 0,
+              floating: true,
+              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+              borderColor: '#CCC',
+              borderWidth: 1,
+              shadow: false
+            },
+            tooltip: {
+              headerFormat: '<b>{point.x}</b><br/>',
+              pointFormat: '{series.name}: {point.y}'
+            },
+            plotOptions: {
+              column: {
+                dataLabels: {
+                  enabled: false,
+                  color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                  style: {
+                    textShadow: '0 0 3px black'
+                  }
+                }
+              }
+            },
+            series: [{
+              name: 'El Salvador',
+              data: [
+                3314,
+                5990,
+                16404,
+                9389,
+                17512,
+              ]
+              },{
+              name: 'Guatemala',
+              data: [
+                3835,
+                8068,
+                17057,
+                13589,
+                18913,
+              ]
+              },{
+              name: 'Honduras',
+              data: [
+                2997,
+                6747,
+                18244,
+                5409,
+                10468,
+              ]
+              },{
+              name: 'Mexico',
+              data: [
+                13974,
+                17240,
+                15634,
+                11012,
+                11926,
+              ]
+              },
+            ]
+          });
+        });
+    </script>
+</body>
