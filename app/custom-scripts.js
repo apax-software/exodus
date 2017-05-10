@@ -17,8 +17,6 @@ require(['dojo/topic'], function(topic) {
    * Custom Javascript to be executed when a section becomes active
    */
   topic.subscribe('story-navigated-section', function(cfg) {
-
-     }
   });
 
 });
