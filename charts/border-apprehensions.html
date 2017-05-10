@@ -147,6 +147,7 @@
 
           window.performCascadeAction = function(params)
           {
+                console.log("perform Cascade", params);
                 if ( params.viewIndex >= 2 ) {
                     if ( ! secondSeriesLoaded ) {
                         secondSeriesLoaded = true;
@@ -163,6 +164,7 @@
 
           function addSecondSeries()
           {
+            console.log("Load Second Series");
             var chart = $('#container').highcharts();
             chart.series[0].removePoint(0);
             chart.series[0].removePoint(0);
