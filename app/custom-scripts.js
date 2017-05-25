@@ -8,9 +8,10 @@ require(['dojo/topic'], function(topic) {
     /*
      * Custom Javascript to be executed when the application is ready goes here
      */
-
-
-    //console.log('Cascade is ready');
+     var languageButtonCover = $("<a class='btn blue'>")
+       .attr("href", window.isSpanish ? "?language=english" : "?language=spanish")
+       .text(window.isSpanish ? "English" : "Español");
+     $("div.section.section-layout-cover div.foo").append(languageButtonCover);
   });
 
   /*
