@@ -12,6 +12,8 @@ require(['dojo/topic'], function(topic) {
        .attr("href", window.isSpanish ? "?language=english" : "?language=spanish")
        .text(window.isSpanish ? "English" : "Español");
      $("div.section.section-layout-cover div.foo").append(languageButtonCover);
+
+     $('span[style="font-style: italic;"]').addClass('blockquote');
   });
 
   /*
