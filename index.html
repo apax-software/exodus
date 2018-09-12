@@ -108,7 +108,88 @@
   </head>
   <body>
     <style>
+      @import url("//hello.myfonts.net/count/33c5f9");
+        
+      @font-face {font-family: 'BloomsHand-Regular';src: url('webfonts/33C5F9_0_0.eot');src: url('webfonts/33C5F9_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/33C5F9_0_0.woff2') format('woff2'),url('webfonts/33C5F9_0_0.woff') format('woff'),url('webfonts/33C5F9_0_0.ttf') format('truetype');}
+       
+        
+      @font-face {font-family: 'BloomsSmooth-Regular';src: url('webfonts/33C5F9_1_0.eot');src: url('webfonts/33C5F9_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/33C5F9_1_0.woff2') format('woff2'),url('webfonts/33C5F9_1_0.woff') format('woff'),url('webfonts/33C5F9_1_0.ttf') format('truetype');}
+       
       /* CUSTOM CSS RULES */
+      .cover-title.title-text {
+        font-family: 'BloomsSmooth-Regular','open_sans','Helvetica Neue','Helvetica','Arial',sans-serif;
+        opacity: 0.7;
+        font-size: 7.0em;
+        text-transform: uppercase;
+      }
+      body.mobile-view .story-header .title {
+        font-size: 1em;
+      }
+      .story-header .title {
+        font-family: 'BloomsSmooth-Regular','open_sans','Helvetica Neue','Helvetica','Arial',sans-serif;
+        text-transform: uppercase;
+        height: 38px;
+        font-size: 26px;
+        line-height: 28px;
+        padding-right:5px;
+        padding-top: 5px;
+      }
+      .section-layout-cover .cover-subtitle {
+        font-family: 'BloomsHand-Regular', 'open_sans','Helvetica Neue','Helvetica','Arial',sans-serif;
+        opacity: 0.7;
+        font-size: 4.0em;
+        margin-top: 5px;
+      }
+      .title-text {
+        font-family: 'BloomsHand-Regular', 'open_sans','Helvetica Neue','Helvetica','Arial',sans-serif;
+      }
+      .section-layout-sequence p {
+        width: 75%;
+      }
+      .foreground i, .foreground .blockquote{
+        display: block;
+        border-left: 2px solid #3b8fc4;
+        line-height: 1.5em;
+        padding: 0px 16px;
+        color: #3b8fc4;
+      }
+      .foreground .block-webpage, .foreground .block-type-video {
+          border: 1px solid white;
+      }
+      .foreground > blockquote {
+        padding: 0px 24px;
+      }
+      .foreground > h2 {
+        color: #777;
+        font-size: 22px;
+        margin-top: -16px;
+        padding-left: 25px;
+        font-family: 'noto_serif','Georgia','Hoefler Text','Palatino',cursive;
+      }
+      /* start da css for da buttons */
+      .btn.blue {
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-size: 22px;
+        text-decoration: none;
+        top: 140px;
+        color: #fff;
+        position: relative;
+        display: inline-block;
+      }
+      .btn.blue:active {
+        transform: translate(0px, 5px);
+        -webkit-transform: translate(0px, 5px);
+        box-shadow: 0px 1px 0px 0px;
+      }
+      .btn.blue {
+        background-color: #55acee;
+        box-shadow: 0px 5px 0px 0px #3C93D5;
+      }
+      .btn.blue:hover {
+        background-color: #6FC6FF;
+        color: white;
+      }
     </style>
 
     <div class="embed-wrapper">
